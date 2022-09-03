@@ -1,0 +1,6 @@
+git check
+create a new repo 
+clone it in my system
+create a new branch
+add new file 
+add that file to github
