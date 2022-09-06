@@ -1,0 +1,19 @@
+.mainbox{
+    display:flex;
+     margin-top: 2%;
+     background-color: white;
+     padding: 2.5%;
+     gap:2.5%;
+     border: 1px solid #dbdcdd;
+     border-radius: 15px;
+}
+.mainbox>img{
+    width:33%
+}
+.head{
+    font-size: 17px;
+    font-weight: 700;
+}
+.con{
+    font-size: 15px;
+}

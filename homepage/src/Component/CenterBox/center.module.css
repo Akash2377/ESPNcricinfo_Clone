@@ -1,0 +1,49 @@
+.centerbox1{
+    background-color:#f9fbfc;
+    height: 300px;
+    padding-top: 1%;
+    
+    
+}
+.centerbox1>div:first-child{
+    display: flex;
+    justify-content: center;
+    
+}
+.midbox{
+   display: flex;
+   justify-content: center;
+   gap: 20px;
+   margin-top: 1%;
+   background-color:#f9fbfc;
+}
+.firstbox{
+    width: 19.5%;
+    height: 300px;
+    background-color: rgb(241, 228, 228);
+}
+.secbox{
+    width: 46%;
+
+}
+.secbox>img:nth-child(2){
+    width: 100%;
+     margin-top: 2%;
+     border-radius:  20px 20px 0px 0px;
+}
+.third>img{
+    margin-top:3%;
+}
+.newsfeed{
+    background-color: black;
+    color:white;
+font-size: 16px;
+padding: 3%;
+border-radius:0px 0px 20px 20px;
+}
+.newsfeed>p:nth-child(1){
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 2%;
+ 
+}

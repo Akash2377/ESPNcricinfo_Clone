@@ -1,3 +1,47 @@
-.akash{
-    color:red;
+.Navbox{
+    font-Size:16px;
+    align-Content:center;
+     gap:20px;
+     /* justify-Content:space-around; */
+     display:flex ;
+     color:white;
+     
+    }
+    .nvi{
+        position: sticky;
+        width: 100%;
+        top:0px
+    }
+.Navbox>img{
+    width:138px;
+    margin-Left:3%;
+}
+.Navbox>div:nth-child(3){
+    margin-left: 8%;
+}
+.Navbox2{
+    font-Size:15px;
+    align-Content:center;
+     gap:20px;
+   
+     display:flex ;
+     color:#414242;
+     background-color: white;
+
+    }
+.hr{
+    width:1px;
+    background-color:grey;
+}
+.Navbox2>div{
+    display: flex;
+    gap: 20px;
+
+}
+.Navbox2>div:first-child{
+ margin-left: 3%;
+
+ border: 0px 0px 1px 0px solid black;
+ color:#2B2c2d;
+ font-weight: 700;
 }
