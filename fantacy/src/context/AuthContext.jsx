@@ -8,7 +8,11 @@ export function AuthContextProvider({ children }) {
         team1img:"",
         team2: "",
         team2img:""
-  });
+    });
+    const [team, setteam] = React.useState([]);
+    function setTeamfn(team) {
+        setteam(team);
+    }
 
     function teamfn(team1, team1img, team2,team2img) {
       const obj = {
@@ -21,7 +25,7 @@ export function AuthContextProvider({ children }) {
     }
 
   return (
-    <AuthContext.Provider value={{ teamname, teamfn }}>
+    <AuthContext.Provider value={{ teamname, teamfn, setTeamfn }}>
       {children}
     </AuthContext.Provider>
   );
