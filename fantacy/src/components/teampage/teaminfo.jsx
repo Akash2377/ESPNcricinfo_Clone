@@ -18,7 +18,7 @@ const Teaminfo = ({
 
     const Title = styled.div`
       
-      background-color: {${flag} ? blue:red};
+      background-color: {${flag} ? "blue":"red"};
     `;
 
 
