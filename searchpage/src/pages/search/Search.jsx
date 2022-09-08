@@ -1,6 +1,29 @@
-import React from "react";
+import * as React from "react";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
 import "./Search.css";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+
+const BoxDiv = styled.div`
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 25px;
+  background-color: white;
+  text-align: start;
+`;
+const MainDiv = styled.div`
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: black;
+  background-color: #eeeeee;
+`;
 const Search = () => {
+  const [value, setValue] = React.useState("one");
+
+  const handleChangeTab = (event, newValue) => {
+    setValue(newValue);
+  };
   const [search, setSearch] = React.useState("Sachin");
   const [newsData, setNewsData] = React.useState([
     {
@@ -54,60 +77,84 @@ const Search = () => {
         console.error(error);
       });
   };
-
+  const navigator = useNavigate();
+  const handleClickNewPage = (id) => {
+    navigator(`/search/${id}`);
+    return;
+  };
   return (
-    <div className="search_container_Ak">
-      <h2>SEARCH CRICINFO</h2>
+    <MainDiv className="search_container_Ak">
+      <h2 style={{ marginLeft: "3.5%" }}>SEARCH CRICINFO</h2>
       <div>
         <div>
-          <div
-            style={{
-              height: "60px",
-              backgroundColor: "#F6F6F6",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-            }}
-          >
-            <input
-              type="text"
-              placeholder="search for player"
-              name="search"
-              value={search}
-              onChange={handleChange}
+          <BoxDiv style={{ padding: "0px" }}>
+            <div
               style={{
-                width: "85%",
-                height: "20px",
-                borderRadius: "5px 0 0 5px",
-                padding: "5px",
-                outline: "none",
-
+                height: "60px",
                 backgroundColor: "#F6F6F6",
-                fontSize: "15px",
-              }}
-            />
-            <button
-              onClick={handleSearch}
-              style={{
-                backgroundColor: "#03a9f4",
-                border: "none",
-                borderRadius: "0 5px 5px 0",
-                color: "white",
-                padding: "9.5px 20px",
-                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
               }}
             >
-              Search
-            </button>
-          </div>
-          <div
-            style={{
-              padding: "25px",
-              backgroundColor: "white",
-              boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-            }}
-          >
+              <input
+                type="text"
+                placeholder="search for player"
+                name="search"
+                value={search}
+                onChange={handleChange}
+                style={{
+                  width: "85%",
+                  height: "20px",
+                  borderRadius: "5px 0 0 5px",
+                  padding: "5px",
+                  outline: "none",
+
+                  backgroundColor: "#F6F6F6",
+                  fontSize: "15px",
+                }}
+              />
+              <button
+                onClick={handleSearch}
+                style={{
+                  backgroundColor: "#03a9f4",
+                  border: "none",
+                  borderRadius: "0 5px 5px 0",
+                  color: "white",
+                  padding: "9.5px 20px",
+                  cursor: "pointer",
+                }}
+              >
+                Search
+              </button>
+            </div>
+            <div style={{ borderBottom: "1px solid gray", padding: "25px" }}>
+              <p>You searched for '{search}'</p>
+              <h3>ESPNCRICINFO’S RECOMMENDED RESULTS</h3>
+              <h4
+                style={{ color: "#439EC9", margin: "0px", fontWeight: "500" }}
+              >
+                Visit Sachin Tendulkar's player page on ESPNcricinfo
+              </h4>
+            </div>
+            <Box sx={{ width: "100%", margin: "0px" }}>
+              <Tabs
+                value={value}
+                onChange={handleChangeTab}
+                aria-label="wrapped label tabs example"
+              >
+                <Tab value="one" label="All" />
+                <Tab value="two" label="Players" />
+                <Tab value="three" label="Stories" />
+                <Tab value="four" label="Videos" />
+                <Tab value="five" label="Photos" />
+                <Tab value="six" label="Gallery" />
+                <Tab value="seven" label="Quotes" />
+              </Tabs>
+            </Box>
+          </BoxDiv>
+          <BoxDiv>
             <h3
               style={{ borderBottom: "1px solid #E4E4E4", textAlign: "start" }}
             >
@@ -121,11 +168,20 @@ const Search = () => {
                 gap: "15px",
               }}
             >
+              {console.log(players)}
               {players.map((ele) => {
                 return (
                   <div key={ele.id}>
                     <p style={{ margin: "0px" }}>{ele.name}</p>
-                    <h4 style={{ color: "#439EC9", margin: "0px" }}>
+                    <h4
+                      style={{
+                        color: "#439EC9",
+                        margin: "0px",
+                        fontWeight: "500",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => handleClickNewPage(ele.id)}
+                    >
                       {ele.name}
                     </h4>
                     <p style={{ margin: "0px" }}>{ele.teamName}</p>
@@ -133,14 +189,8 @@ const Search = () => {
                 );
               })}
             </div>
-          </div>
-          <div
-            style={{
-              padding: "25px",
-              backgroundColor: "white",
-              boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-            }}
-          >
+          </BoxDiv>
+          <BoxDiv>
             <h3
               style={{ borderBottom: "1px solid #E4E4E4", textAlign: "start" }}
             >
@@ -157,43 +207,76 @@ const Search = () => {
               {newsData.map((ele) => {
                 let x = Math.random() * 1000;
                 return (
-                  <div key={x}>
-                    <p style={{ margin: "0px" }}>{ele.title}</p>
-                    <img src={ele.image_url} alt="text" />
-                    <p>{ele.pubDate}</p>
-                    <p>{ele.content}</p>
-                    <p style={{ margin: "0px" }}>{ele.teamName}</p>
+                  <div
+                    key={x}
+                    style={{ display: "flex", alignItems: "center" }}
+                  >
+                    <img
+                      src={
+                        ele.image_url ||
+                        "https://thumbs.dreamstime.com/b/cricket-bat-ball-26560801.jpg"
+                      }
+                      alt="text"
+                      style={{
+                        width: "220px",
+                        marginRight: "15px",
+                        height: "100px",
+                      }}
+                    />
+                    <div style={{ width: "80%" }}>
+                      <p style={{ margin: "0px" }}>News</p>
+                      <p
+                        style={{
+                          margin: "0px",
+                          fontWeight: "500",
+                        }}
+                      >
+                        {ele.title}
+                      </p>
+                      <p style={{ margin: "0px" }}>{ele.pubDate}</p>
+                      <p style={{ margin: "0px" }}>
+                        {ele.content
+                          ? ele.content.slice(0, 100)
+                          : "Asia Cup 2022, IND vs SL: Rohit Sharma scored 72 off just 41 deliveries against Sri Lanka. PAK vs AFG, Asia Cup 2022:"}
+                        ...
+                      </p>
+                    </div>
                   </div>
                 );
               })}
             </div>
-          </div>
+          </BoxDiv>
         </div>
-        <div>
+        <div className="Advertisement_container">
           <img
             src="https://tpc.googlesyndication.com/simgad/605161044816525343?"
             alt="Advertisement "
+            className="Advertisement_container"
           />
           <img
             src="https://tpc.googlesyndication.com/simgad/14828744798620350827?"
             alt="Advertisement "
+            className="Advertisement_container"
           />
           <img
             src="https://tpc.googlesyndication.com/simgad/12885726672715156796?"
             alt="Advertisement "
+            className="Advertisement_container"
           />
           <img
             src="https://tpc.googlesyndication.com/simgad/3023903939702895094?"
             alt="Advertisement "
+            className="Advertisement_container"
           />
           <div></div>
           <img
             src="https://tpc.googlesyndication.com/simgad/14765500984849215753?"
             alt="Advertisement "
+            className="Advertisement_container"
           />
         </div>
       </div>
-    </div>
+    </MainDiv>
   );
 };
 
