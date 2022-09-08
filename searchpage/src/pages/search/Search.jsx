@@ -13,8 +13,7 @@ const BoxDiv = styled.div`
   text-align: start;
 `;
 const MainDiv = styled.div`
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: BentonSans-Bold, Arial, Noto Sans, sans-serif;
   color: black;
   background-color: #eeeeee;
 `;
@@ -49,8 +48,12 @@ const Search = () => {
       url: "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search",
       params: { plrN: `${search}` },
       headers: {
-        "X-RapidAPI-Key": "c5c01821f0msh0234c23c91a5487p18d353jsn2aca8382d9f4",
+        "X-RapidAPI-Key": "392c50f76dmsh7fcd8d624bc3d99p1cf214jsnaad3594475cf",
         "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
+        // "X-RapidAPI-Key": "c5c01821f0msh0234c23c91a5487p18d353jsn2aca8382d9f4",
+        // "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
+        // "X-RapidAPI-Key": "b657969a7amsh192b4e42ea64172p1d2c30jsnfa8e4bbaa2df",
+        // "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
       },
     };
 
@@ -229,12 +232,16 @@ const Search = () => {
                         style={{
                           margin: "0px",
                           fontWeight: "500",
+                          color: "#439EC9",
+                          fontSize: "15px",
                         }}
                       >
                         {ele.title}
                       </p>
-                      <p style={{ margin: "0px" }}>{ele.pubDate}</p>
-                      <p style={{ margin: "0px" }}>
+                      <p style={{ margin: "0px", fontSize: "13px" }}>
+                        {ele.pubDate}
+                      </p>
+                      <p style={{ margin: "0px", fontSize: "13px" }}>
                         {ele.content
                           ? ele.content.slice(0, 100)
                           : "Asia Cup 2022, IND vs SL: Rohit Sharma scored 72 off just 41 deliveries against Sri Lanka. PAK vs AFG, Asia Cup 2022:"}

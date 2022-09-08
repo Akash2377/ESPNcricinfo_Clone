@@ -5,10 +5,74 @@ import Box from "@mui/material/Box";
 import "./Search.css";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
-
+const initBatting = {
+  headers: ["ROWHEADER", "Test", "ODI", "T20", "IPL"],
+  values: [
+    {
+      values: ["Matches", "43", "45", "60", "109"],
+    },
+    {
+      values: ["Innings", "74", "43", "56", "100"],
+    },
+    {
+      values: ["Runs", "2547", "1665", "1901", "3889"],
+    },
+    {
+      values: ["Balls", "4833", "1895", "1352", "2855"],
+    },
+    {
+      values: ["Highest", "199", "112", "110", "132"],
+    },
+    {
+      values: ["Average", "35.38", "45.0", "38.8", "48.01"],
+    },
+    {
+      values: ["SR", "52.7", "87.86", "140.61", "136.22"],
+    },
+    {
+      values: ["Not Out", "2", "6", "7", "19"],
+    },
+    {
+      values: ["Fours", "309", "125", "166", "327"],
+    },
+    {
+      values: ["Sixes", "17", "39", "77", "164"],
+    },
+    {
+      values: ["Ducks", "7", "2", "5", "4"],
+    },
+    {
+      values: ["50s", "13", "10", "16", "31"],
+    },
+    {
+      values: ["100s", "7", "5", "2", "4"],
+    },
+    {
+      values: ["200s", "0", "0", "0", "0"],
+    },
+    {
+      values: ["300s", "0", "0", "0", "0"],
+    },
+    {
+      values: ["400s", "0", "0", "0", "0"],
+    },
+  ],
+  appIndex: {
+    seoTitle: "KL Rahul Profile - Cricbuzz | Cricbuzz.com",
+    webURL: "http://www.cricbuzz.com/profiles/8733/kl-rahul",
+  },
+  seriesSpinner: [
+    {
+      seriesName: "Career",
+    },
+    {
+      seriesId: 4499,
+      seriesName: "Asia Cup 2022",
+    },
+  ],
+};
 const MainDiv = styled.div`
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: BentonSans-Bold, Arial, Noto Sans, sans-serif;
   color: black;
   background-color: #eeeeee;
   display: flex;
@@ -24,24 +88,18 @@ const BoxDiv = styled.div`
 `;
 const H3 = styled.h3`
   margin-top: -5px;
-  font-weight: 500;
-  font-size: 15px;
+  font-weight: 600;
+  font-size: 17px;
+  font-family: BentonSans-Bold, Arial, Noto Sans, sans-serif; ;
 `;
 const PlayerDetails = () => {
+  const [batting, setBatting] = React.useState(initBatting);
+  const [viewMore, setViewMore] = React.useState(true);
   const [value, setValue] = React.useState("one");
   const [player, setPlayers] = React.useState({});
+  console.log(batting);
   const handleChangeTab = (event, newValue) => {
     setValue(newValue);
-  };
-  const { id } = useParams();
-  const axios = require("axios");
-  const options = {
-    method: "GET",
-    url: `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${id}`,
-    headers: {
-      "X-RapidAPI-Key": "c5c01821f0msh0234c23c91a5487p18d353jsn2aca8382d9f4",
-      "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
-    },
   };
   const {
     name,
@@ -53,8 +111,26 @@ const PlayerDetails = () => {
     role,
     height,
     birthPlace,
+    bio,
   } = player;
+  const { id } = useParams();
+  const axios = require("axios");
+  const handleView = () => {
+    setViewMore(!viewMore);
+  };
   React.useEffect(() => {
+    const options = {
+      method: "GET",
+      url: `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${id}`,
+      headers: {
+        "X-RapidAPI-Key": "392c50f76dmsh7fcd8d624bc3d99p1cf214jsnaad3594475cf",
+        "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
+        // "X-RapidAPI-Key": "c5c01821f0msh0234c23c91a5487p18d353jsn2aca8382d9f4",
+        // "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
+        // "X-RapidAPI-Key": "b657969a7amsh192b4e42ea64172p1d2c30jsnfa8e4bbaa2df",
+        // "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
+      },
+    };
     axios
       .request(options)
       .then(function (response) {
@@ -64,7 +140,30 @@ const PlayerDetails = () => {
       .catch(function (error) {
         console.error(error);
       });
+
+    const options3 = {
+      method: "GET",
+      url: `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${id}/batting`,
+      headers: {
+        "X-RapidAPI-Key": "392c50f76dmsh7fcd8d624bc3d99p1cf214jsnaad3594475cf",
+        "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
+        // "X-RapidAPI-Key": "c5c01821f0msh0234c23c91a5487p18d353jsn2aca8382d9f4",
+        // "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
+        // "X-RapidAPI-Key": "b657969a7amsh192b4e42ea64172p1d2c30jsnfa8e4bbaa2df",
+        // "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
+      },
+    };
+
+    axios
+      .request(options3)
+      .then(function (response) {
+        setBatting(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
   }, []);
+
   return (
     <MainDiv>
       <img
@@ -74,7 +173,7 @@ const PlayerDetails = () => {
       <BoxDiv>
         <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
           <img
-            src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320/lsci/db/PICTURES/CMS/316400/316486.png"
+            src="https://rukminim1.flixcart.com/image/332/398/kzu6efk0/t-shirt/a/y/d/xl-indian-cricket-team-t-shirt-liodix-original-imagbrapve5jahh6.jpeg?q=50"
             alt="advertisement"
           />
           <img
@@ -96,10 +195,13 @@ const PlayerDetails = () => {
             flexDirection: "column",
             width: "67%",
             alignItems: "center",
-            backgroundColor: "white",
+            gap: "15px",
           }}
         >
-          <Box sx={{ width: "100%", margin: "0px" }}>
+          <Box
+            sx={{ width: "100%", margin: "0px" }}
+            style={{ backgroundColor: "white", borderRadius: "10px" }}
+          >
             <Tabs
               value={value}
               onChange={handleChangeTab}
@@ -117,51 +219,252 @@ const PlayerDetails = () => {
           </Box>
           <div
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3,1fr)",
-              gap: "5px",
-              width: "80%",
+              width: "90%",
+              backgroundColor: "white",
+              borderRadius: "10px",
+              padding: "2% 5%",
             }}
           >
-            <div>
-              <p>FULL NAME</p>
-              <H3>{name}</H3>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3,1fr)",
+                gap: "5px",
+              }}
+            >
+              <div>
+                <p>FULL NAME</p>
+                <H3>{name}</H3>
+              </div>
+              <div>
+                <p>BORN</p>
+                <H3>{DoBFormat}</H3>
+              </div>
+              <div>
+                <p>AGE</p>
+                <H3>{DoB}</H3>
+              </div>
+              <div>
+                <p>NICKNAMES</p>
+                <H3>{nickName}</H3>
+              </div>
+              <div>
+                <p>BATTING STYLE</p>
+                <H3>{bat}</H3>
+              </div>
+              <div>
+                <p>BOWLING STYLE</p>
+                <H3>{bowl}</H3>
+              </div>
+              <div>
+                <p>PLAYING ROLE</p>
+                <H3>{role}</H3>
+              </div>
+              <div>
+                <p>HEIGHT</p>
+                <H3>{height}</H3>
+              </div>
+              <div>
+                <p>BIRTH PLACE</p>
+                <H3>{birthPlace}</H3>
+              </div>
             </div>
-
-            <div>
-              <p>BORN</p>
-              <H3>{DoBFormat}</H3>
-            </div>
-            <div>
-              <p>AGE</p>
-              <H3>{DoB}</H3>
-            </div>
-            <div>
-              <p>NICKNAMES</p>
-              <H3>{nickName}</H3>
-            </div>
-            <div>
-              <p>BATTING STYLE</p>
-              <H3>{bat}</H3>
-            </div>
-            <div>
-              <p>BOWLING STYLE</p>
-              <H3>{bowl}</H3>
-            </div>
-            <div>
-              <p>PLAYING ROLE</p>
-              <H3>{role}</H3>
-            </div>
-            <div>
-              <p>HEIGHT</p>
-              <h3>{height}</h3>
-            </div>
-            <div>
-              <p>BIRTH PLACE</p>
-              <H3>{birthPlace}</H3>
-            </div>
+            <div
+              style={
+                viewMore
+                  ? { height: "190px", overflow: "hidden" }
+                  : { height: "auto" }
+              }
+              dangerouslySetInnerHTML={{
+                __html: bio,
+              }}
+            ></div>
+            <p
+              onClick={handleView}
+              style={{
+                textAlign: "center",
+                color: "blue",
+                cursor: "pointer",
+                fontWeight: "bold",
+              }}
+            >
+              {viewMore ? "View More" : "View Less"}
+            </p>
           </div>
-          <p>{birthPlace}</p>
+          <div
+            style={{
+              width: "90%",
+              backgroundColor: "white",
+              borderRadius: "10px",
+              padding: "2% 5%",
+            }}
+          >
+            <div style={{ borderBottom: "1px solid gray" }}>
+              <h4>Career Averages</h4>
+            </div>
+            <h4>Batting </h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>FORMAT</th>
+                  <th>Mat</th> <th>Inns</th> <th>NO</th> <th>Runs</th>
+                  <th>HS</th> <th>Ave</th> <th>BF</th> <th>SR</th> <th>100s</th>
+                  <th>50s</th> <th>4s</th> <th>6s</th> <th>Ct</th> <th>St</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{batting.headers[1]}</td>
+                  <td>{batting.values[0].values[1]}</td>
+                  <td>{batting.values[1].values[1]}</td>
+                  <td>{batting.values[7].values[1]}</td>
+                  <td>{batting.values[2].values[1]}</td>
+                  <td>{batting.values[4].values[1]}</td>
+                  <td>{batting.values[5].values[1]}</td>
+                  <td>{batting.values[3].values[1]}</td>
+                  <td>{batting.values[6].values[1]}</td>
+                  <td>{batting.values[12].values[1]}</td>
+                  <td>{batting.values[11].values[1]}</td>
+                  <td>{batting.values[8].values[1]}</td>
+                  <td>{batting.values[9].values[1]}</td>
+                  <td>0</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>{batting.headers[2]}</td>
+                  <td>{batting.values[0].values[2]}</td>
+                  <td>{batting.values[1].values[2]}</td>
+                  <td>{batting.values[7].values[2]}</td>
+                  <td>{batting.values[2].values[2]}</td>
+                  <td>{batting.values[4].values[2]}</td>
+                  <td>{batting.values[5].values[2]}</td>
+                  <td>{batting.values[3].values[2]}</td>
+                  <td>{batting.values[6].values[2]}</td>
+                  <td>{batting.values[12].values[2]}</td>
+                  <td>{batting.values[11].values[2]}</td>
+                  <td>{batting.values[8].values[2]}</td>
+                  <td>{batting.values[9].values[2]}</td>
+                  <td>0</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>{batting.headers[3]}</td>
+                  <td>{batting.values[0].values[3]}</td>
+                  <td>{batting.values[1].values[3]}</td>
+                  <td>{batting.values[7].values[3]}</td>
+                  <td>{batting.values[2].values[3]}</td>
+                  <td>{batting.values[4].values[3]}</td>
+                  <td>{batting.values[5].values[3]}</td>
+                  <td>{batting.values[3].values[3]}</td>
+                  <td>{batting.values[6].values[3]}</td>
+                  <td>{batting.values[12].values[3]}</td>
+                  <td>{batting.values[11].values[3]}</td>
+                  <td>{batting.values[8].values[3]}</td>
+                  <td>{batting.values[9].values[3]}</td>
+                  <td>0</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>{batting.headers[4]}</td>
+                  <td>{batting.values[0].values[4]}</td>
+                  <td>{batting.values[1].values[4]}</td>
+                  <td>{batting.values[7].values[4]}</td>
+                  <td>{batting.values[2].values[4]}</td>
+                  <td>{batting.values[4].values[4]}</td>
+                  <td>{batting.values[5].values[4]}</td>
+                  <td>{batting.values[3].values[4]}</td>
+                  <td>{batting.values[6].values[4]}</td>
+                  <td>{batting.values[12].values[4]}</td>
+                  <td>{batting.values[11].values[4]}</td>
+                  <td>{batting.values[8].values[4]}</td>
+                  <td>{batting.values[9].values[4]}</td>
+                  <td>0</td>
+                  <td>0</td>
+                </tr>
+              </tbody>
+            </table>
+            <h4>Bolling </h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>FORMAT</th>
+                  <th>Mat</th> <th>Inns</th> <th>NO</th> <th>Runs</th>
+                  <th>HS</th> <th>Ave</th> <th>BF</th> <th>SR</th> <th>100s</th>
+                  <th>50s</th> <th>4s</th> <th>6s</th> <th>Ct</th> <th>St</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{batting.headers[1]}</td>
+                  <td>{batting.values[0].values[1]}</td>
+                  <td>{batting.values[1].values[1]}</td>
+                  <td>{batting.values[7].values[1]}</td>
+                  <td>{batting.values[2].values[1]}</td>
+                  <td>{batting.values[4].values[1]}</td>
+                  <td>{batting.values[5].values[1]}</td>
+                  <td>{batting.values[3].values[1]}</td>
+                  <td>{batting.values[6].values[1]}</td>
+                  <td>{batting.values[10].values[1]}</td>
+                  <td>{batting.values[11].values[1]}</td>
+                  <td>{batting.values[8].values[1]}</td>
+                  <td>{batting.values[9].values[1]}</td>
+                  <td>0</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>{batting.headers[2]}</td>
+                  <td>{batting.values[0].values[2]}</td>
+                  <td>{batting.values[1].values[2]}</td>
+                  <td>{batting.values[7].values[2]}</td>
+                  <td>{batting.values[2].values[2]}</td>
+                  <td>{batting.values[4].values[2]}</td>
+                  <td>{batting.values[5].values[2]}</td>
+                  <td>{batting.values[3].values[2]}</td>
+                  <td>{batting.values[6].values[2]}</td>
+                  <td>{batting.values[11].values[2]}</td>
+                  <td>{batting.values[10].values[2]}</td>
+                  <td>{batting.values[8].values[2]}</td>
+                  <td>{batting.values[9].values[2]}</td>
+                  <td>0</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>{batting.headers[3]}</td>
+                  <td>{batting.values[0].values[3]}</td>
+                  <td>{batting.values[1].values[3]}</td>
+                  <td>{batting.values[7].values[3]}</td>
+                  <td>{batting.values[2].values[3]}</td>
+                  <td>{batting.values[4].values[3]}</td>
+                  <td>{batting.values[5].values[3]}</td>
+                  <td>{batting.values[3].values[3]}</td>
+                  <td>{batting.values[6].values[3]}</td>
+                  <td>{batting.values[11].values[3]}</td>
+                  <td>{batting.values[10].values[3]}</td>
+                  <td>{batting.values[8].values[3]}</td>
+                  <td>{batting.values[9].values[3]}</td>
+                  <td>0</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>{batting.headers[4]}</td>
+                  <td>{batting.values[0].values[4]}</td>
+                  <td>{batting.values[1].values[4]}</td>
+                  <td>{batting.values[7].values[4]}</td>
+                  <td>{batting.values[2].values[4]}</td>
+                  <td>{batting.values[4].values[4]}</td>
+                  <td>{batting.values[5].values[4]}</td>
+                  <td>{batting.values[3].values[4]}</td>
+                  <td>{batting.values[6].values[4]}</td>
+                  <td>{batting.values[11].values[4]}</td>
+                  <td>{batting.values[10].values[4]}</td>
+                  <td>{batting.values[8].values[4]}</td>
+                  <td>{batting.values[9].values[4]}</td>
+                  <td>0</td>
+                  <td>0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </BoxDiv>
     </MainDiv>

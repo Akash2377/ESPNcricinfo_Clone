@@ -16,7 +16,21 @@
   flex-direction: column;
   gap: 10px;
 }
-
+table {
+  width: 100%;
+  text-align: center;
+  gap: 30px;
+}
+thead {
+  background: #f6f7f8;
+  color: #7d7e80;
+}
+tr,
+th,
+td {
+  margin: 0;
+  font-weight: 300;
+}
 @media screen and (max-width: 992px) {
 }
 
