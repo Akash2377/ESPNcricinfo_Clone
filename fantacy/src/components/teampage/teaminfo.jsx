@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Avatar, Text, background, Input } from "@chakra-ui/react";
+import { Box, Avatar, Text, background, Input,Switch } from "@chakra-ui/react";
 import "../match/match.css";
 import { useBoolean } from "@chakra-ui/react";
 import styled from "styled-components";
@@ -14,7 +14,8 @@ const Teaminfo = ({
     pts,
   page
 }) => {
-  const [flag, setflag] = React.useState(false);
+    const [flag, setflag] = React.useState(false);
+    // const [flag, setFlag] = useBoolean(false);
 
 
   const Title = styled.div`
@@ -24,41 +25,40 @@ const Teaminfo = ({
     //   border-radius: 5%;
   `;
 
-    // React.useEffect(() => {
-    //  setflag(false)   
-    // },[page])
-  const bothfn = (name, country,id,flag) => {
-    onclickfn(id,name, country, flag);
-    setflag((flag) => {
-      return !flag;
-    });
+    const bothfn = (name, country, id, flag) => {
+        onclickfn(id, name, country, flag);
+        setflag((flag) => {
+          return !flag;
+        });
+        
+    
   };
     return (
-      
-    
-      <Box
-        onClick={() => bothfn(name, country,id,flag)}
-        display="flex"
-        w="100%"
-        gap="20"
-        justifyContent="start"
-        key={id}
-      >
-        <Box display="flex" w="50%">
-          <Avatar src={playerImg}></Avatar>
-          <Box ml="3">
-            <Text className="machname">{name}</Text>
-            <Text>{country}</Text>
+      <Title>
+        <Box
+          onClick={() => bothfn(name, country, id, flag)}
+          display="flex"
+          w="100%"
+          gap="20"
+          justifyContent="start"
+          
+            >
+               
+          <Box display="flex" w="50%">
+            <Avatar src={playerImg}></Avatar>
+            <Box ml="3">
+              <Text className="machname">{name}</Text>
+              <Text>{country}</Text>
+            </Box>
+          </Box>
+          <Box display="flex" w="50%" justifyContent="space-between">
+            <Box>{sby}</Box>
+            <Box>{pts}</Box>
+            <Box>{cr}</Box>
           </Box>
         </Box>
-        <Box display="flex" w="50%" justifyContent="space-between">
-          <Box>{sby}</Box>
-          <Box>{pts}</Box>
-          <Box>{cr}</Box>
-        </Box>
-      </Box>
-    
-  );
+      </Title>
+    );
 };
 
 export default Teaminfo;

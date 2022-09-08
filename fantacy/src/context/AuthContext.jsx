@@ -10,8 +10,15 @@ export function AuthContextProvider({ children }) {
         team2img:""
     });
     const [team, setteam] = React.useState([]);
+    const [contest, setcontest] = React.useState([]);
     function setTeamfn(team) {
         setteam(team);
+    }
+
+    function forsetcontest() {
+        setcontest((contest) => {
+            return "done"
+        })
     }
 
     function teamfn(team1, team1img, team2,team2img) {
@@ -25,7 +32,9 @@ export function AuthContextProvider({ children }) {
     }
 
   return (
-    <AuthContext.Provider value={{ teamname, teamfn, setTeamfn }}>
+    <AuthContext.Provider
+      value={{ teamname, teamfn, setTeamfn, team, forsetcontest, setcontest }}
+    >
       {children}
     </AuthContext.Provider>
   );

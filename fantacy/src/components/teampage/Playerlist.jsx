@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import Teaminfo from "./teaminfo";
-import { useBoolean } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import "../match/match.css";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -30,30 +30,57 @@ const Playerlist = ({ team1, team2 }) => {
   const [isfilter, setisfilter] = React.useState(false);
   const [display, setdisplay] = React.useState("none");
 
-  //   const [flag, setflag] = useBoolean();
-
   React.useEffect(() => {
-    fetch(`https://rupesh-team.herokuapp.com/items?_page=${page}`)
+    fetch(`https://rupesh-team.herokuapp.com/items?_page=${page}&_limit=4`)
       .then((res) => res.json())
       .then((res) => setplayer(res))
       .catch((err) => console.log(err));
   }, [page]);
 
-  const addplayer = (id, name, country, flag) => {
-    let obj = {
-      id: id,
-      name: name,
-      country: country,
-    };
+//   const addplayer = (id, name, country, flag) => {
+    
 
-    if (flag == false) {
-      setplayerlist([...playerlist, obj]);
-    } else {
-      let data1 = playerlist.filter((item) => item.name != { name });
-      console.log(data1);
-      setplayerlist(data1);
+//       if (flag == false) {
+//         let obj = {
+//           id: id,
+//           name: name,
+//           country: country,
+//         };
+//       fetch("https://rupesh-team.herokuapp.com/player", {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(obj),
+//       });
+//     } else {
+//       fetch(`https://rupesh-team.herokuapp.com/player/${id}`, {
+//         method: "DELETE",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       });
+//     }
+//   };
+    
+    
+    const addplayer = (id, name, country, flag) => {
+        if (flag == false) {
+            let obj = {
+                id: id,
+                name: name,
+                country: country,
+            };
+            setplayerlist((data) => {
+                return [...data,obj]
+            })
+        }
+        else {
+            let newdata = playerlist.filter((item) => item.id != id)
+            setplayerlist(newdata)
+        }
     }
-  };
+    
   const filterfn = () => {
     if (isfilter == true) {
       const data1 = player.sort((a, b) => {
@@ -89,9 +116,17 @@ const Playerlist = ({ team1, team2 }) => {
     if (playerlist.length < 12) {
       setdisplay("");
     } else {
-      setTeamfn(playerlist);
+        setTeamfn(playerlist)
+      fetch("https://rupesh-team.herokuapp.com/player", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(playerlist),
+      });
     }
-  };
+    };
+    
   const onClose = () => {
     setdisplay("none");
   };
@@ -137,8 +172,8 @@ const Playerlist = ({ team1, team2 }) => {
       </Box>
       <Box display="flex" mt="-5" flexDirection="column" gap="5">
         {player.map((item) => (
-            <Teaminfo
-                key={item.id}
+          <Teaminfo
+            key={item.id}
             team1={team1}
             team2={team2}
             onclickfn={addplayer}
@@ -161,9 +196,11 @@ const Playerlist = ({ team1, team2 }) => {
           />
         </Box>
       </Alert>
-      <Button m="auto" colorScheme="purple" size="lg" onClick={sendtoconetxt}>
-        Save & Continue
-      </Button>
+          <Link to="/" >
+        <Button display='block' m="auto" colorScheme="purple" size="lg" onClick={sendtoconetxt}>
+          Save & Continue
+        </Button>
+      </Link>
     </Box>
   );
 };
