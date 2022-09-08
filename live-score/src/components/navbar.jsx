@@ -4,24 +4,29 @@ import { Link } from "react-router-dom";
 
 const NavbarWrapper = styled.div`
   display: flex;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   gap: 20px;
-  background: pink;
-  color: white;
-  padding: 20px;
 `;
+const StyledLink=styled(Link)`
+
+  &:hover{
+    color:#4AC4EE;
+  }
+}
+`
 
 
 
 export const Navbar=()=>{
     return(
         <NavbarWrapper>
-           <Link to="/">Live Score</Link>
-           <Link to="/scorecard">Scorecard</Link>
-           <Link to="/commentry">Commentry</Link>
-           <Link to="/playingxi">Playing XI</Link>
-           <Link to="/pointtable">Point Table</Link>
+           <StyledLink to="/">Live Score</StyledLink>
+           <StyledLink to="/scorecard">Scorecard</StyledLink>
+           <StyledLink to="/commentry">Commentry</StyledLink>
+           <StyledLink to="/playingxi">Playing XI</StyledLink>
+           <StyledLink to="/pointtable">Point Table</StyledLink>
         </NavbarWrapper>
     )
 }
