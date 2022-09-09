@@ -469,7 +469,7 @@ const PlayerDetails = () => {
                 </tr>
               </tbody>
             </table>
-            <h4>Bolling </h4>
+            <h4>Bowling </h4>
             <table>
               <thead>
                 <tr>
