@@ -11,7 +11,7 @@ const Team = () => {
   
 
   return (
-    <Box width="40%" m='auto' border="1px" p="5">
+    <Box width="40%" m='auto'mt='12' p="5">
       <Box></Box>
       <Box
         w="100%"

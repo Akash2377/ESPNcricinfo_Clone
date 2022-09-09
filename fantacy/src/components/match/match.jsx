@@ -24,7 +24,7 @@ const Match = ({ teamInfo, id, dateTimeGMT }) => {
       }
       to={`/matches/${id}`}
     >
-      <Box padding="9px 16px 33px">
+      <Box  padding="9px 16px 33px">
         <Box
           boxShadow="md"
           filter="drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1))"

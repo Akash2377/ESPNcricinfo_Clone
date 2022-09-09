@@ -132,7 +132,7 @@ const Playerlist = ({ team1, team2 }) => {
   };
 
   return (
-    <Box display="flex" flexDirection="column" gap="5">
+    <Box h='100vh' display="flex" flexDirection="column" gap="5">
       <Tabs
         p=" 10px 0px"
         display="flex"

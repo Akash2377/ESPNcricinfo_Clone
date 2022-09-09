@@ -12,12 +12,20 @@ const Home = () => {
 
     function joincontest() {
         setcontest((con) => {
-            return [...con,{done:"done"}]
+            return [
+              ...con,
+              {
+                team1: team.team1,
+                team1img: team.team1img,
+                team2: team.team2,
+                team2img: team.team2img,
+              },
+            ];
         })
     }
 
   return (
-    <Box height="100vh" bg="#f8f7f3" p="10" w="40%">
+    <Box m='auto' mt='4%'  p="10" w="41%">
       <Contest joincontest={joincontest} />
       <Contest joincontest={joincontest} />
       <Box m="auto">
