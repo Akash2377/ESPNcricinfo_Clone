@@ -71,6 +71,66 @@ const initBatting = {
     },
   ],
 };
+const initBolling = {
+  headers: ["ROWHEADER", "Test", "ODI", "T20", "IPL"],
+  values: [
+    {
+      values: ["Matches", "43", "45", "61", "109"],
+    },
+    {
+      values: ["Innings", "0", "0", "0", "0"],
+    },
+    {
+      values: ["Balls", "0", "0", "0", "0"],
+    },
+    {
+      values: ["Runs", "0", "0", "0", "0"],
+    },
+    {
+      values: ["Maidens", "0", "0", "0", "0"],
+    },
+    {
+      values: ["Wickets", "0", "0", "0", "0"],
+    },
+    {
+      values: ["Avg", "0", "0", "", "0"],
+    },
+    {
+      values: ["Eco", "0", "0", "", "0"],
+    },
+    {
+      values: ["SR", "0", "0", "", "0"],
+    },
+    {
+      values: ["BBI", "-/-", "-/-", "0/0", "-/-"],
+    },
+    {
+      values: ["BBM", "-/-", "-/-", "0/0", "-/-"],
+    },
+    {
+      values: ["4w", "0", "0", "0", "0"],
+    },
+    {
+      values: ["5w", "0", "0", "0", "0"],
+    },
+    {
+      values: ["10w", "0", "0", "0", "0"],
+    },
+  ],
+  appIndex: {
+    seoTitle: "KL Rahul Profile - Cricbuzz | Cricbuzz.com",
+    webURL: "http://www.cricbuzz.com/profiles/8733/kl-rahul",
+  },
+  seriesSpinner: [
+    {
+      seriesName: "Career",
+    },
+    {
+      seriesId: 4499,
+      seriesName: "Asia Cup 2022",
+    },
+  ],
+};
 const MainDiv = styled.div`
   font-family: BentonSans-Bold, Arial, Noto Sans, sans-serif;
   color: black;
@@ -94,6 +154,7 @@ const H3 = styled.h3`
 `;
 const PlayerDetails = () => {
   const [batting, setBatting] = React.useState(initBatting);
+  const [bolling, setBolling] = React.useState(initBolling);
   const [viewMore, setViewMore] = React.useState(true);
   const [value, setValue] = React.useState("one");
   const [player, setPlayers] = React.useState({});
@@ -162,6 +223,27 @@ const PlayerDetails = () => {
       .catch(function (error) {
         console.error(error);
       });
+    const options4 = {
+      method: "GET",
+      url: `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${id}/balling`,
+      headers: {
+        "X-RapidAPI-Key": "392c50f76dmsh7fcd8d624bc3d99p1cf214jsnaad3594475cf",
+        "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
+        // "X-RapidAPI-Key": "c5c01821f0msh0234c23c91a5487p18d353jsn2aca8382d9f4",
+        // "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
+        // "X-RapidAPI-Key": "b657969a7amsh192b4e42ea64172p1d2c30jsnfa8e4bbaa2df",
+        // "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
+      },
+    };
+
+    axios
+      .request(options4)
+      .then(function (response) {
+        setBolling(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
   }, []);
 
   return (
@@ -208,13 +290,17 @@ const PlayerDetails = () => {
               aria-label="wrapped label tabs example"
               style={{ marginLeft: "100px" }}
             >
-              <Tab value="one" label="Overview" />
-              <Tab value="two" label="Stats" />
-              <Tab value="three" label="Records" />
-              <Tab value="four" label="Matches" />
-              <Tab value="five" label="Videos" />
-              <Tab value="six" label="News" />
-              <Tab value="seven" label="Photos" />
+              <Tab value="one" label="Overview" style={{ fontWeight: "700" }} />
+              <Tab value="two" label="Stats" style={{ fontWeight: "700" }} />
+              <Tab
+                value="three"
+                label="Records"
+                style={{ fontWeight: "700" }}
+              />
+              <Tab value="four" label="Matches" style={{ fontWeight: "700" }} />
+              <Tab value="five" label="Videos" style={{ fontWeight: "700" }} />
+              <Tab value="six" label="News" style={{ fontWeight: "700" }} />
+              <Tab value="seven" label="Photos" style={{ fontWeight: "700" }} />
             </Tabs>
           </Box>
           <div
@@ -388,78 +474,75 @@ const PlayerDetails = () => {
               <thead>
                 <tr>
                   <th>FORMAT</th>
-                  <th>Mat</th> <th>Inns</th> <th>NO</th> <th>Runs</th>
-                  <th>HS</th> <th>Ave</th> <th>BF</th> <th>SR</th> <th>100s</th>
-                  <th>50s</th> <th>4s</th> <th>6s</th> <th>Ct</th> <th>St</th>
+                  <th>Mat</th> <th>Inns</th> <th>Balls</th> <th>Runs</th>
+                  <th>Wkts</th> <th>BBI</th> <th>BBM</th> <th>Ave</th>
+                  <th>Econ</th>
+                  <th>SR</th> <th>4w</th> <th>5w</th> <th>10w</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>{batting.headers[1]}</td>
-                  <td>{batting.values[0].values[1]}</td>
-                  <td>{batting.values[1].values[1]}</td>
-                  <td>{batting.values[7].values[1]}</td>
-                  <td>{batting.values[2].values[1]}</td>
-                  <td>{batting.values[4].values[1]}</td>
-                  <td>{batting.values[5].values[1]}</td>
-                  <td>{batting.values[3].values[1]}</td>
-                  <td>{batting.values[6].values[1]}</td>
-                  <td>{batting.values[10].values[1]}</td>
-                  <td>{batting.values[11].values[1]}</td>
-                  <td>{batting.values[8].values[1]}</td>
-                  <td>{batting.values[9].values[1]}</td>
-                  <td>0</td>
+                  <td>{bolling.headers[1]}</td>
+                  <td>{bolling.values[0].values[1]}</td>
+                  <td>{bolling.values[1].values[1]}</td>
+                  <td>{bolling.values[2].values[1]}</td>
+                  <td>{bolling.values[3].values[1]}</td>
+                  <td>{bolling.values[5].values[1]}</td>
+                  <td>{bolling.values[8].values[1]}</td>
+                  <td>{bolling.values[9].values[1]}</td>
+                  <td>{bolling.values[6].values[1]}</td>
+                  <td>{bolling.values[10].values[1]}</td>
+                  <td>{bolling.values[7].values[1]}</td>
+                  <td>{bolling.values[11].values[1]}</td>
+                  <td>{bolling.values[12].values[1]}</td>
+                  <td>{bolling.values[13].values[1]}</td>
+                </tr>
+                <tr>
+                  <td>{bolling.headers[2]}</td>
+                  <td>{bolling.values[0].values[2]}</td>
+                  <td>{bolling.values[1].values[2]}</td>
+                  <td>{bolling.values[7].values[2]}</td>
+                  <td>{bolling.values[2].values[2]}</td>
+                  <td>{bolling.values[4].values[2]}</td>
+                  <td>{bolling.values[5].values[2]}</td>
+                  <td>{bolling.values[3].values[2]}</td>
+                  <td>{bolling.values[6].values[2]}</td>
+                  <td>{bolling.values[11].values[2]}</td>
+                  <td>{bolling.values[10].values[2]}</td>
+                  <td>{bolling.values[8].values[2]}</td>
+                  <td>{bolling.values[9].values[2]}</td>
                   <td>0</td>
                 </tr>
                 <tr>
-                  <td>{batting.headers[2]}</td>
-                  <td>{batting.values[0].values[2]}</td>
-                  <td>{batting.values[1].values[2]}</td>
-                  <td>{batting.values[7].values[2]}</td>
-                  <td>{batting.values[2].values[2]}</td>
-                  <td>{batting.values[4].values[2]}</td>
-                  <td>{batting.values[5].values[2]}</td>
-                  <td>{batting.values[3].values[2]}</td>
-                  <td>{batting.values[6].values[2]}</td>
-                  <td>{batting.values[11].values[2]}</td>
-                  <td>{batting.values[10].values[2]}</td>
-                  <td>{batting.values[8].values[2]}</td>
-                  <td>{batting.values[9].values[2]}</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>{batting.headers[3]}</td>
-                  <td>{batting.values[0].values[3]}</td>
-                  <td>{batting.values[1].values[3]}</td>
-                  <td>{batting.values[7].values[3]}</td>
-                  <td>{batting.values[2].values[3]}</td>
-                  <td>{batting.values[4].values[3]}</td>
-                  <td>{batting.values[5].values[3]}</td>
-                  <td>{batting.values[3].values[3]}</td>
-                  <td>{batting.values[6].values[3]}</td>
-                  <td>{batting.values[11].values[3]}</td>
-                  <td>{batting.values[10].values[3]}</td>
-                  <td>{batting.values[8].values[3]}</td>
-                  <td>{batting.values[9].values[3]}</td>
-                  <td>0</td>
+                  <td>{bolling.headers[3]}</td>
+                  <td>{bolling.values[0].values[3]}</td>
+                  <td>{bolling.values[1].values[3]}</td>
+                  <td>{bolling.values[7].values[3]}</td>
+                  <td>{bolling.values[2].values[3]}</td>
+                  <td>{bolling.values[4].values[3]}</td>
+                  <td>{bolling.values[5].values[3]}</td>
+                  <td>{bolling.values[3].values[3]}</td>
+                  <td>{bolling.values[6].values[3]}</td>
+                  <td>{bolling.values[11].values[3]}</td>
+                  <td>{bolling.values[10].values[3]}</td>
+                  <td>{bolling.values[8].values[3]}</td>
+                  <td>{bolling.values[9].values[3]}</td>
                   <td>0</td>
                 </tr>
                 <tr>
-                  <td>{batting.headers[4]}</td>
-                  <td>{batting.values[0].values[4]}</td>
-                  <td>{batting.values[1].values[4]}</td>
-                  <td>{batting.values[7].values[4]}</td>
-                  <td>{batting.values[2].values[4]}</td>
-                  <td>{batting.values[4].values[4]}</td>
-                  <td>{batting.values[5].values[4]}</td>
-                  <td>{batting.values[3].values[4]}</td>
-                  <td>{batting.values[6].values[4]}</td>
-                  <td>{batting.values[11].values[4]}</td>
-                  <td>{batting.values[10].values[4]}</td>
-                  <td>{batting.values[8].values[4]}</td>
-                  <td>{batting.values[9].values[4]}</td>
-                  <td>0</td>
+                  <td>{bolling.headers[4]}</td>
+                  <td>{bolling.values[0].values[4]}</td>
+                  <td>{bolling.values[1].values[4]}</td>
+                  <td>{bolling.values[7].values[4]}</td>
+                  <td>{bolling.values[2].values[4]}</td>
+                  <td>{bolling.values[4].values[4]}</td>
+                  <td>{bolling.values[5].values[4]}</td>
+                  <td>{bolling.values[3].values[4]}</td>
+                  <td>{bolling.values[6].values[4]}</td>
+                  <td>{bolling.values[11].values[4]}</td>
+                  <td>{bolling.values[10].values[4]}</td>
+                  <td>{bolling.values[8].values[4]}</td>
+                  <td>{bolling.values[9].values[4]}</td>
                   <td>0</td>
                 </tr>
               </tbody>

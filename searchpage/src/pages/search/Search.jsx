@@ -147,13 +147,41 @@ const Search = () => {
                 onChange={handleChangeTab}
                 aria-label="wrapped label tabs example"
               >
-                <Tab value="one" label="All" />
-                <Tab value="two" label="Players" />
-                <Tab value="three" label="Stories" />
-                <Tab value="four" label="Videos" />
-                <Tab value="five" label="Photos" />
-                <Tab value="six" label="Gallery" />
-                <Tab value="seven" label="Quotes" />
+                <Tab
+                  value="one"
+                  label="All"
+                  style={{ fontWeight: "700", fontSize: "15px" }}
+                />
+                <Tab
+                  value="two"
+                  label="Players"
+                  style={{ fontWeight: "700", fontSize: "15px" }}
+                />
+                <Tab
+                  value="three"
+                  label="Stories"
+                  style={{ fontWeight: "700", fontSize: "15px" }}
+                />
+                <Tab
+                  value="four"
+                  label="Videos"
+                  style={{ fontWeight: "700", fontSize: "15px" }}
+                />
+                <Tab
+                  value="five"
+                  label="Photos"
+                  style={{ fontWeight: "700", fontSize: "15px" }}
+                />
+                <Tab
+                  value="six"
+                  label="Gallery"
+                  style={{ fontWeight: "700", fontSize: "15px" }}
+                />
+                <Tab
+                  value="seven"
+                  label="Quotes"
+                  style={{ fontWeight: "700", fontSize: "15px" }}
+                />
               </Tabs>
             </Box>
           </BoxDiv>
