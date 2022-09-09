@@ -1,5 +1,5 @@
 import React from "react";
-import {LiveScoreBox }from "./Component/LiveScore";
+import {LiveScoreBox }from "./Component/LiveScorebox/LiveScore";
 import { ChakraProvider } from '@chakra-ui/react'
 import {Home} from "./Pages/Home"
 import { themecontext } from "./context/themecontext";

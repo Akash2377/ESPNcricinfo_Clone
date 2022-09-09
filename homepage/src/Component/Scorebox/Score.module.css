@@ -24,6 +24,9 @@ font-size: 12px;
 font-weight: 700;
 color: #E44242;
 }
+.conten>div>h1>span{
+    margin-left: 370px;
+}
 .conten{
     padding: 10px;
 }
