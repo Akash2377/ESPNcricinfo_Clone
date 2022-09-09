@@ -1,15 +1,16 @@
 import React from "react";
 import {LiveScoreBox }from "./Component/LiveScore";
 import { ChakraProvider } from '@chakra-ui/react'
-import { Navbar } from "./Component/NavbarBox/Navbar";
-import { CenterBox } from "./Component/CenterBox/Center";
-function App() {
+import {Home} from "./Pages/Home"
+import { themecontext } from "./context/themecontext";
+ export function App() {
+  const {theme,handleTheme} =React.useContext(themecontext)
+  console.log(theme);
   return (
     <ChakraProvider>
      
      <LiveScoreBox/>
-    <Navbar/>
-    <CenterBox/>
+  <Home theme={theme} handleTheme={handleTheme}/>
     </ChakraProvider>
     
   );

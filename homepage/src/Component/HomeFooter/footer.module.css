@@ -1,0 +1,46 @@
+.footer{
+    background-color: #f9fbfc;
+    padding: 2%;
+}
+.footmain{
+    width:95%;
+    background-color:white;
+    border: 1px solid #ebebeb;
+    margin-left: 3%;
+    border-radius: 10px;
+   display: grid;
+   grid-template-columns: repeat(5,1fr);
+   
+    gap:2%;
+    padding: 20px;
+}
+.keyseries{
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+    /* padding: 20px; */
+    background-color: white;
+ color: #48494c;
+}
+.keyseries>h1{
+    display: flex;
+    gap: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+.contact{
+    background-color:  #e9ebec;
+    padding: 1% 4%;
+    text-align: center;
+    display: flex;
+    gap:20%;
+    font-size: 15px;
+
+}
+.contact>h2{
+    font-size:13px ;
+}

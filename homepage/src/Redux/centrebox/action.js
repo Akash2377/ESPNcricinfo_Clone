@@ -19,8 +19,9 @@ export const getnewerror=()=>(
 )
 
 export const Fetchdata=()=>{
-    const dispatch=useDispatch()
-        dispatch(getnewsloading())
+   
+   return(dispatch)=>{
+    dispatch(getnewsloading())
         fetch(`https://cricbuzz-cricket.p.rapidapi.com/news/v1/index`,{
             method:"GET",
             headers: {
@@ -35,4 +36,4 @@ export const Fetchdata=()=>{
         .catch((error)=>dispatch(getnewerror()))
     
         }
-
+    }

@@ -10,7 +10,7 @@ export const newsReducer=(state=init,action)=>{
             return{
                 ...state,news:action.payload,
                 loading:false,
-                error:false
+               
             }
 
          case types.GETNEWSLOADING:
