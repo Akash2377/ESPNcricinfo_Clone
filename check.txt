@@ -7,3 +7,12 @@ add that file to github
 
 #liveAPI
 https://www.cricbuzz.com/api/cricket-match/commentary/51243
+https://www.cricbuzz.com/api/html/cricket-scorecard/51243
+https://www.cricbuzz.com/api/cricket-match/51243/highlights/1
+
+
+overSeparator
+
+
+
+    

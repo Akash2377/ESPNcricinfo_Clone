@@ -8,6 +8,7 @@ const NavbarWrapper = styled.div`
   align-items: center;
   justify-content: space-around;
   gap: 20px;
+  padding:10px;
 `;
 const StyledLink=styled(Link)`
 
