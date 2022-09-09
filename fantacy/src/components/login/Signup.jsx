@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Text, Input, Heading, Button } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const init =  {
   name: "",
@@ -10,6 +10,8 @@ const init =  {
 
 const Signup = () => {
   const [form, setform] = React.useState(init);
+  const navigate = useNavigate();
+  
   const inputfn = (e) => {
     const { value, name } = e.target;
     setform((form) =>( {
@@ -27,11 +29,14 @@ const Signup = () => {
       },
       body: newform
     });
+    alert("SignUp Sucsessfull")
+    navigate("/login")
+
     
   }
 
   return (
-    <Box m="auto" mt="20" w="40%">
+    <Box  mt='20' w="40%">
       <Box gap="5" display="flex" alignItems="center" flexDirection="column">
         <Heading>Sign up</Heading>
         <Text mt="-2" mb="5">

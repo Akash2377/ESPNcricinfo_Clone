@@ -18,7 +18,7 @@ const Matches = () => {
   };
 
   return (
-    <Box margin="auto"  mt='4%' width="40%" p="1">
+    <Box  mt='4%' width="40%" p="1">
       {data.map((match) => (
         <Match key={match.id} {...match} />
       ))}

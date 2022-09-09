@@ -58,7 +58,7 @@ const Contest = ({ joincontest }) => {
         </Box>
       </Box>
       <>
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal  isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader fontSize="2xl">CONFIRMATION</ModalHeader>

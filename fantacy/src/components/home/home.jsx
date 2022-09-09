@@ -25,7 +25,7 @@ const Home = () => {
     }
 
   return (
-    <Box m='auto' mt='4%'  p="10" w="41%">
+    <Box mt='4%'  p="10" w="41%">
       <Contest joincontest={joincontest} />
       <Contest joincontest={joincontest} />
       <Box m="auto">

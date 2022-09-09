@@ -9,7 +9,7 @@ const Mycontest = () => {
     <h1>NOne</h1>
   ) : (
     <Box
-      m="auto"
+    
       width="38%"
       className="contest-data"
       mt="20"

@@ -24,7 +24,7 @@ const Login = () => {
     }
   }
   return (
-    <Box m="auto" mt="20" w="40%">
+    <Box  mt='36' w="40%">
       <Box gap="5" display="flex" alignItems="center" flexDirection="column">
         <Heading>LOGIN</Heading>
         <Text mt="-2" mb="5">

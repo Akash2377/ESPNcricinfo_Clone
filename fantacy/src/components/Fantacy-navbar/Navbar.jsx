@@ -16,8 +16,8 @@ const Navbar = () => {
           zIndex="1"
           top="0px"
           display="flex"
-          left="31%"
-          w="38%"
+        
+          w="40%"
         >
           <Avatar size="sm" src="https://bit.ly/broken-link" />
           <Image
@@ -29,11 +29,11 @@ const Navbar = () => {
         </Box>
         <Box>
           <Tabs
-            p="0px 19px"
+            p="-1px 15px"
             pos="fixed"
-            w="41%"
+            w="40%"
             zIndex="modal"
-            right="29%"
+            
             bottom="0%"
           >
             <TabList
