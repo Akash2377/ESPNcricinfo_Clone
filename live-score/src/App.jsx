@@ -2,12 +2,12 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 
 
-import { Navbar } from './components/navbar';
-import { Commentary } from "./components/commentry";
-import { PlayingXI } from "./components/playing";
-import { ScoreCard } from "./components/scorecard";
-import { PonitTable } from "./components/pointTable";
-import { Score } from './components/score';
+import { Navbar } from './components/liveScore/navbar';
+import { Commentary } from "./components/liveScore/commentry";
+import { PlayingXI } from "./components/liveScore/playing";
+import { ScoreCard } from "./components/liveScore/scorecard";
+import { PonitTable } from "./components/liveScore/pointTable";
+import { Score } from './components/liveScore/score';
 
 function App() {
   return (
