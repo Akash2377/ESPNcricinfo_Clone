@@ -41,7 +41,7 @@ const Div1 = styled.div`
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   justify-content: space-between;
   gap: 20px;
-  align-items:left;
+  text-align:left;
   padding:10px;
   width:100%;
 `;
@@ -79,7 +79,7 @@ export const Score = () => {
 
   React.useEffect(() => {
     setLoading(true);
-    fetch("https://www.cricbuzz.com/api/cricket-match/commentary/52384")
+    fetch("https://www.cricbuzz.com/api/cricket-match/commentary/51259")
       .then((res) => res.json())
       .then((res) => {
         setLiveScore(res.commentaryList[0].batsmanStriker);
@@ -117,11 +117,11 @@ export const Score = () => {
             <Tbody>
               <Tr>
                 <Td><b>{batName||"Virat Kohli"}*</b></Td>
-                <Td>{batRuns||44}</Td>
-                <Td>{batBalls||21}</Td>
-                <Td>{batFours||4}</Td>
-                <Td>{batSixes||3}</Td>
-                <Td>{batStrikeRate||206.70}</Td>
+                <Td>{batRuns||0}</Td>
+                <Td>{batBalls||0}</Td>
+                <Td>{batFours||0}</Td>
+                <Td>{batSixes||0}</Td>
+                <Td>{batStrikeRate||0}</Td>
               </Tr>
               <Tr>
                 <Td><b>Rohit Sharma</b></Td>
@@ -153,12 +153,12 @@ export const Score = () => {
             <Tbody>
               <Tr>
                 <Td><b>{bowlName||"Bhuvaneshwar Kumar"}*</b></Td>
-                <Td>{bowlOvs||2.2}</Td>
+                <Td>{bowlOvs||0}</Td>
                 <Td>{bowlMaidens||0}</Td>
-                <Td>{bowlRuns||22}</Td>
-                <Td>{bowlWkts||1}</Td>
-                <Td>{bowlEcon||9.6}</Td>
-                <Td>{bowlWides||2}</Td>
+                <Td>{bowlRuns||0}</Td>
+                <Td>{bowlWkts||0}</Td>
+                <Td>{bowlEcon||0}</Td>
+                <Td>{bowlWides||0}</Td>
                 <Td>{bowlNoballs||0}</Td>
 
               </Tr>
