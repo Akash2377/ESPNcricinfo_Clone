@@ -7,6 +7,8 @@ import Home from "./components/home/home";
 import Team from "./components/teampage/team";
 import Mycontest from "./components/mycontest/mycontest";
 import Navbar from "./components/Fantacy-navbar/Navbar";
+import Signup from "./components/login/Signup";
+import Login from "./components/login/Login";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/login" element={<Login />}></Route>
 
         <Route path="/matches" element={<Matches />}></Route>
         <Route path="/mycontest" element={<Mycontest />}></Route>
