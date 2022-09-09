@@ -20,7 +20,7 @@ export const Navbar=({theme,handleTheme})=>{
   const [open7 ,setopen7]=React.useState(false)
   const [open8 ,setopen8]=React.useState(false)
     return(<div className={styles.nvi}        >
-    <Box        className={styles.Navbox} bg=  {theme==="light"?'#03a9f4' :"#1d1e1f"} w='100%' p={4} >
+    <Box     position="fixed"    className={styles.Navbox} bg=  {theme==="light"?'#03a9f4' :"#1d1e1f"} w='100%' p={4} >
     <img src="https://wassets.hscicdn.com/static/images/logo.png" alt="logo"/>
     <div style={{
       display:"flex",
