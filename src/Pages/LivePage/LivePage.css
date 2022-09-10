@@ -1,0 +1,117 @@
+.container_liveDiv {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 2%;
+}
+.MainDiv_live {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #eeeeee;
+  font-family: BentonSans-Bold, Arial, Noto Sans, sans-serif;
+}
+.container_liveDiv > div:first-child {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container_liveDiv > div:last-child {
+  width: 20%;
+}
+.Container_liveMatch {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.flagClass {
+  width: 23px;
+}
+.smallDivMatch {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 0.002px solid rgba(211, 204, 204, 0.836);
+}
+.smallDivMatch > p {
+  margin: 0;
+  margin: 2px;
+}
+.smallDivMatch > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0px;
+}
+
+.smallDivMatch > div > div {
+  display: flex;
+  gap: 15px;
+}
+.smallDivMatch > div p {
+  font-weight: bold;
+}
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 702px) {
+  .Advertisement_container {
+    display: none;
+  }
+  .MainDiv_live > img {
+    width: 80%;
+  }
+  .Container_liveMatch {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .smallDivMatch > div {
+    margin: 0;
+  }
+  p {
+    font-size: 10px;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .Advertisement_container {
+    display: none;
+  }
+
+  p {
+    font-size: 10px;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .Advertisement_container {
+    display: none;
+  }
+
+  p {
+    font-size: 10px;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 14px;
+  }
+}

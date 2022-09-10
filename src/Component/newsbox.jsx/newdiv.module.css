@@ -1,0 +1,24 @@
+.mainbox{
+    display:flex;
+    flex-direction: column;
+     margin-top: 2%;
+     background-color: white;
+     padding: 2.5%;
+     gap:2.5%;
+ border: 1px solid #dbdcdd;
+    
+}
+.mainbox>img{
+    width:100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.head{
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.con{
+    font-size: 15px;
+}

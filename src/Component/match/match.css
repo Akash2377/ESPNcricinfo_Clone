@@ -1,0 +1,25 @@
+.time{
+    font-size: 16px;
+    font-weight: normal;
+    color: #ff4333;
+    font-weight: 700;
+    background: none;
+    padding-left: 0px;
+}
+.teamname{
+    color: #24194B;
+    text-transform: capitalize;
+    font-size: 13px;
+    font-weight: 800;
+    margin: 5px 0px 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px;
+}
+.machname{
+    font-weight: 700;
+    font-size: 15px;
+    margin-top: 0px;
+    
+}

@@ -1,0 +1,70 @@
+.Navbox {
+  font-size: 16px;
+  align-content: center;
+  gap: 20px;
+  /* justify-Content:space-around; */
+  display: flex;
+  color: white;
+}
+.link:hover {
+  color: #03a9f4;
+}
+.Navbox2 {
+  position: sticky;
+  width: 100%;
+  top: 0px;
+  z-index: 10;
+}
+.nvi {
+  position: sticky;
+  width: 100%;
+  top: 0px;
+  z-index: 10;
+}
+.Navbox > img {
+  width: 138px;
+  margin-left: 3%;
+}
+.Navbox > div:nth-child(3) {
+  margin-left: 8%;
+}
+.Navbox2 {
+  font-size: 15px;
+  align-content: center;
+  gap: 20px;
+
+  display: flex;
+  color: #414242;
+  background-color: white;
+}
+.hr {
+  width: 1px;
+  background-color: grey;
+}
+.Navbox2 > div {
+  display: flex;
+  gap: 20px;
+}
+.Navbox2 > div:first-child {
+  margin-left: 3%;
+
+  border: 0px 0px 1px 0px solid black;
+  color: #2b2c2d;
+  font-weight: 700;
+}
+.dropdown {
+  position: absolute;
+  display: grid;
+  gap: 10px 60px;
+  grid-template-columns: repeat(2, 2fr);
+  color: black;
+  background-color: white;
+  padding: 2% 4% 2% 2%;
+  top: 50%;
+  border-radius: 15px 15px 15px 15px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.dropdown > h1:hover {
+  background-color: #bbe3f5;
+}

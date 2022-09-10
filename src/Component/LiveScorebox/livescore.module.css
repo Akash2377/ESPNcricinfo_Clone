@@ -1,0 +1,48 @@
+.box1 {
+  /* background-color:#0398dc ; */
+  color: white;
+  display: flex;
+
+  font-size: 12px;
+  padding: 0px;
+  padding-left: 60px;
+  gap: 20px;
+}
+.mainb {
+  padding: 0px 60px;
+  background-color: #0398dc;
+}
+.box1 > p {
+  margin-top: -10px;
+}
+.box2 > div > hr:nth-child(2) {
+  display: none;
+}
+.box2 > div > hr:nth-child(4) {
+  margin-top: -17px;
+}
+.box2 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1%;
+  padding: 10px 0px;
+  margin-top: -20px;
+}
+.box2 > div > div > div > h1 > span {
+  margin-left: 100px;
+}
+.box2 > div > div > div > h1,
+.box2 > div > div > div > h2 {
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0px;
+}
+.box2 > div > div > p {
+  font-size: 10px;
+  font-weight: 700;
+}
+.box2 > div {
+  width: 300px;
+  height: 140px;
+  border-radius: 15px;
+}
