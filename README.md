@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+## ** Problem statement**
+<br>
+Our Problem statement is creating a pixel-perfect clone of [espncricinfo](https://www.espncricinfo.com/). Previously we did a clone of a few web pages but in this problem, we were supposed to make pages dynamic.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ** The Idea**
+<br>
+We are pursuing a Full Stack Web Development course at Masai school, In Masai school, we have given a project to clone the espncricinfo website. It was a pretty good project to work on. We are five members of the team. The task was to clone the pixel-perfect layout of the espncricinfo website. Let's look at how we designed it 
 
-## Available Scripts
+ ### Home Page 👇
 
-In the project directory, you can run:
+![image](https://cdn.hashnode.com/res/hashnode/image/upload/v1662785723394/2W-38HG0c.png )
 
-### `npm start`
+ ### Theme change 👇
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![image](https://cdn.hashnode.com/res/hashnode/image/upload/v1662785779992/7AgSjYxss.png )
+## Team Members
+> ### • [Manu Mangal](https://github.com/Manu2807)
+> ### •[Akash Surve](https://github.com/Akash2377)
+> ### •[Rupesh Karale](https://github.com/rupeshkarale)
+> ### • [Saurabh Jadhao](https://github.com/Jadhao2500)
+> ### • [Aniket ](https://github.com/meankit2610)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technology Used
+> •  REACT
+> •  REDUX
+> • CHAKRA UI
+> • STYLED-COMPONENTS
+> • REACT-ROUTER
+> • DOM
+> • Local Storage
+> • JSON Server
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tools
+> • VS Code
+> • Github
+> • Redux Div tool
+> • Postman
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project link
+> ### •[ESPNcricinfo](https://espncricinfoclone.netlify.app/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Github link
+> ### •[ESPNcricinfo](https://github.com/Akash2377/ESPNcricinfo_Clone)
