@@ -33,7 +33,15 @@ export function AuthContextProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ teamname, teamfn, setTeamfn, team, forsetcontest, setcontest }}
+      value={{
+        teamname,
+        teamfn,
+        setTeamfn,
+        team,
+        forsetcontest,
+        setcontest,
+        contest,
+      }}
     >
       {children}
     </AuthContext.Provider>

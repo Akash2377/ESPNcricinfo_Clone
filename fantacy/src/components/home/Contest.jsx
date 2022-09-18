@@ -16,10 +16,11 @@ import "./contest.css";
 const Contest = ({ joincontest }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const { teamname } = React.useContext(AuthContext);
-  console.log(teamname);
+  const { contest } = React.useContext(AuthContext);
+  console.log(contest);
 
   return (
+    // contest.length==0 ? <h1>no data</h1> :
     <Box
       className="contest-data"
       mb="6"

@@ -7,7 +7,7 @@ import { Link, useRouteMatch, useParams } from "react-router-dom";
 
 
 const Home = () => {
-    const { team } = React.useContext(AuthContext);
+    const { teamname } = React.useContext(AuthContext);
     const { setcontest } = React.useContext(AuthContext);
 
     function joincontest() {
@@ -15,17 +15,17 @@ const Home = () => {
             return [
               ...con,
               {
-                team1: team.team1,
-                team1img: team.team1img,
-                team2: team.team2,
-                team2img: team.team2img,
+                team1: teamname.team1,
+                team1img: teamname.team1img,
+                team2: teamname.team2,
+                team2img: teamname.team2img,
               },
             ];
         })
     }
 
   return (
-    <Box mt='4%'  p="10" w="41%">
+    <Box mt="4%" p="10" w="41%">
       <Contest joincontest={joincontest} />
       <Contest joincontest={joincontest} />
       <Box m="auto">
@@ -37,7 +37,7 @@ const Home = () => {
             size="lg"
             colorScheme="purple"
           >
-            {team.length < 1 ? "Create Team" : `TEAM 1`}
+            {teamname.length < 1 ? "Create Team" : `TEAM 1`}
           </Button>
         </Link>
       </Box>

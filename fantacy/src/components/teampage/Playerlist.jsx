@@ -113,9 +113,7 @@ const Playerlist = ({ team1, team2 }) => {
   };
 
   const sendtoconetxt = () => {
-    if (playerlist.length < 12) {
-      setdisplay("");
-    } else {
+    
         setTeamfn(playerlist)
       fetch("https://rupesh-team.herokuapp.com/player", {
         method: "PUT",
@@ -124,7 +122,7 @@ const Playerlist = ({ team1, team2 }) => {
         },
         body: JSON.stringify(playerlist),
       });
-    }
+    
     };
     
   const onClose = () => {
@@ -196,7 +194,7 @@ const Playerlist = ({ team1, team2 }) => {
           />
         </Box>
       </Alert>
-          <Link to="/" >
+          <Link to="/home" >
         <Button display='block' m="auto" colorScheme="purple" size="lg" onClick={sendtoconetxt}>
           Save & Continue
         </Button>
