@@ -30,7 +30,6 @@ We are pursuing a Full Stack Web Development course at Masai school, In Masai sc
 > • Local Storage
 > • JSON Server
 
-
 ## Tools
 > • VS Code
 > • Github
