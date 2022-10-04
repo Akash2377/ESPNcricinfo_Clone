@@ -18,7 +18,7 @@ We are pursuing a Full Stack Web Development course at Masai school, In Masai sc
 > ### •[Akash Surve](https://github.com/Akash2377)
 > ### •[Rupesh Karale](https://github.com/rupeshkarale)
 > ### • [Saurabh Jadhao](https://github.com/Jadhao2500)
-> ### • [Aniket ](https://github.com/meankit2610)
+> ### • [Ankit ](https://github.com/meankit2610)
 
 ## Technology Used
 > •  REACT
